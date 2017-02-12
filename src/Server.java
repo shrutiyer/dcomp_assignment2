@@ -1,3 +1,4 @@
+package example.instant;
 
 import java.rmi.registry.Registry;
 import java.rmi.registry.LocateRegistry;
@@ -14,6 +15,7 @@ public class Server implements InstantMessage {
     public static void main(String args[]) {
 
         try {
+            System.setProperty("java.rmi.server.hostname","Fill in IP here");
             Server obj = new Server();
             InstantMessage stub = (InstantMessage) UnicastRemoteObject.exportObject(obj, 0);
 
