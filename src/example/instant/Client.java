@@ -11,6 +11,7 @@ public class Client {
 
         String host = (args.length < 1) ? null : args[0];
         try {
+            System.setProperty("java.rmi.server.hostname","192.168.34.42");
             Registry registry = LocateRegistry.getRegistry(host);
             InstantMessage stub = (InstantMessage) registry.lookup("Hello");
             String response = stub.sayHello();

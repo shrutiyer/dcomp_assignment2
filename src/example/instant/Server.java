@@ -15,7 +15,7 @@ public class Server implements InstantMessage {
     public static void main(String args[]) {
 
         try {
-            System.setProperty("java.rmi.server.hostname","Fill in IP here");
+            System.setProperty("java.rmi.server.hostname","192.168.34.42");
             Server obj = new Server();
             InstantMessage stub = (InstantMessage) UnicastRemoteObject.exportObject(obj, 0);
 
