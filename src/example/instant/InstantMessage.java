@@ -6,5 +6,5 @@ import java.rmi.RemoteException;
 public interface InstantMessage extends Remote {
     String sayHello() throws RemoteException;
 
-    String registerUser() throws RemoteException;
+    String registerUser(String u) throws RemoteException;
 }
