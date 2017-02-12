@@ -6,16 +6,21 @@ import java.rmi.server.UnicastRemoteObject;
 
 public class Server implements InstantMessage {
 
+    private
     public Server() {}
 
     public String sayHello() {
         return "Hello, world!";
     }
 
+    public String registerUser(String user_name) {
+        return ""
+    }
+
     public static void main(String args[]) {
 
         try {
-            System.setProperty("java.rmi.server.hostname","192.168.34.42");
+            System.setProperty("java.rmi.server.hostname","");
             Server obj = new Server();
             InstantMessage stub = (InstantMessage) UnicastRemoteObject.exportObject(obj, 0);
 
