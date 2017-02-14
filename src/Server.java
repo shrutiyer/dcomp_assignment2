@@ -1,22 +1,14 @@
-package example.instant;
-
-import java.rmi.RemoteException;
 import java.rmi.registry.Registry;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Server implements InstantMessage {
+public class Server implements IMInterface {
 
     private Set<String> users;
     public Server() {
         users = new HashSet<>();
-    }
-
-    @Override
-    public String sayHello() {
-        return "Hello, world!";
     }
 
     @Override
@@ -32,7 +24,7 @@ public class Server implements InstantMessage {
         try {
             System.setProperty("java.rmi.server.hostname","10.26.90.131");
             Server obj = new Server();
-            InstantMessage stub = (InstantMessage) UnicastRemoteObject.exportObject(obj, 0);
+            IMInterface stub = (IMInterface) UnicastRemoteObject.exportObject(obj, 0);
 
             // Bind the remote object's stub in the registry
             Registry registry = LocateRegistry.getRegistry();

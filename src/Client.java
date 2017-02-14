@@ -1,5 +1,3 @@
-package example.instant;
-
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.Scanner;
@@ -12,9 +10,8 @@ public class Client {
 
         String host = (args.length < 1) ? null : args[0];
         try {
-            System.setProperty("java.rmi.server.hostname","10.26.90.131");
             Registry registry = LocateRegistry.getRegistry(host);
-            InstantMessage stub = (InstantMessage) registry.lookup("Hello");
+            IMInterface stub = (IMInterface) registry.lookup("Hello");
             // create a scanner so we can read the command-line input
             Scanner scanner = new Scanner(System.in);
 
@@ -34,8 +31,6 @@ public class Client {
                 default:
                     System.out.println("Invalid Command");
             }
-            String response = stub.sayHello();
-            System.out.println("response: " + response);
         } catch (Exception e) {
             System.err.println("Client exception: " + e.toString());
             e.printStackTrace();
