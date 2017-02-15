@@ -52,6 +52,7 @@ public class ClientRunner {
                         break;
                 }
             }
+            System.exit(0);
         }catch (Exception e) {
             System.out.println("[System] Client failed: " + e);
             e.printStackTrace();
