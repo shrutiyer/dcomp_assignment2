@@ -11,6 +11,7 @@ public class Server extends UnicastRemoteObject implements ServerInterface{
 
     @Override
     public boolean register(ClientInterface client) throws RemoteException {
+        System.out.println("Request to register " + client.getName() +" received.");
         if (clientMap.keySet().contains(client.getName())) {
             return false;
         }
@@ -32,11 +33,12 @@ public class Server extends UnicastRemoteObject implements ServerInterface{
     @Override
     public boolean sendToServer(Message m) throws RemoteException {
         System.out.println("Server message received");
+        System.out.println(m.toString());
+//        return false;
         if(!clientMap.keySet().contains(m.receiver)) {
             return false;
         }
-        clientMap.get(m
-                .receiver).sendToClient(m);
+        clientMap.get(m.receiver).sendToClient(m);
         return true;
     }
 

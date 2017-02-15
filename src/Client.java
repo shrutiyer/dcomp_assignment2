@@ -13,6 +13,11 @@ public class Client extends UnicastRemoteObject implements ClientInterface {
     }
 
     public void sendToClient(Message m) throws RemoteException{
-        System.out.println(m.sender + ": " + m.msg);
+        System.out.println();
+        System.out.println();
+        System.out.println("Message received from " + m.sender + ":");
+        System.out.println(m.msg);
+        System.out.println();
+        System.out.print("Your command -> ");
     }
 }
