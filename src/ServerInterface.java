@@ -6,6 +6,6 @@ public interface ServerInterface extends Remote {
 
     boolean register (ClientInterface client)throws RemoteException;
     List<String> getUsers ()throws RemoteException;
-    boolean send(Message m)throws RemoteException;
+    boolean sendToServer(Message m)throws RemoteException;
 
 }

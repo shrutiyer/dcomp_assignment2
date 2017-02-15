@@ -41,9 +41,9 @@ public class ClientRunner {
                         System.out.println("Enter the message.");
                         String m = s.nextLine().trim();
                         Message sendMsg = new Message(client.getName(), r, m);
-                        System.out.println(sendMsg.sender);
-                        boolean success = server.send(sendMsg);
-                        if (!success) System.out.println("Unable to send message.");
+                        System.out.println(sendMsg);
+                        boolean success = server.sendToServer(sendMsg);
+                        if (!success) System.out.println("Unable to sendToClient message.");
                         break;
                     case 3:
                         quit = true;

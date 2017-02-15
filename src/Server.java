@@ -21,6 +21,7 @@ public class Server extends UnicastRemoteObject implements ServerInterface{
 
     @Override
     public List<String> getUsers() throws RemoteException {
+        System.out.println("Request for user received");
         ArrayList<String> clientList = new ArrayList<>();
         for (ClientInterface c: clients) {
             clientList.add(c.getName());
@@ -29,12 +30,13 @@ public class Server extends UnicastRemoteObject implements ServerInterface{
     }
 
     @Override
-    public boolean send(Message m) throws RemoteException {
+    public boolean sendToServer(Message m) throws RemoteException {
         System.out.println("Server message received");
         if(!clientMap.keySet().contains(m.receiver)) {
             return false;
         }
-        clientMap.get(m.receiver).send(m);
+        clientMap.get(m
+                .receiver).sendToClient(m);
         return true;
     }
 

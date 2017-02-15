@@ -10,4 +10,9 @@ public class Message extends UnicastRemoteObject {
         this.receiver = r;
         this.msg = m;
     }
+
+    @Override
+    public String toString() {
+        return "Message from " + sender + " to " + receiver + ". " + msg;
+    }
 }
