@@ -8,10 +8,13 @@ public class Client extends UnicastRemoteObject implements ClientInterface {
     public Client(String n)  throws RemoteException {
         this.name=n;
     }
+
+    @Override
     public String getName() throws RemoteException {
         return this.name;
     }
 
+    @Override
     public void sendToClient(Message m) throws RemoteException{
         System.out.println();
         System.out.println();

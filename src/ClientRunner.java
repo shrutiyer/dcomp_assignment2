@@ -29,7 +29,12 @@ public class ClientRunner {
             System.out.println();
             while (!quit) {
                 System.out.print("Your command -> ");
-                int msg = Integer.parseInt(s.nextLine().trim());
+                int msg;
+                try {
+                    msg = Integer.parseInt(s.nextLine().trim());
+                } catch (NumberFormatException e) {
+                    continue;
+                }
                 System.out.println();
 
                 switch (msg) {
@@ -53,7 +58,7 @@ public class ClientRunner {
                 }
             }
             System.exit(0);
-        }catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("[System] Client failed: " + e);
             e.printStackTrace();
         }
